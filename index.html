@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Nested Custom Element</title>
+  <script>
+    const onLoaded = () => {
+      const div = document.querySelector('div');
+      div.attachShadow({mode: "open"})
+      const p1 = document.createElement('p')
+      p1.innerHTML='Hello'
+      div.shadowRoot.appendChild(p1)
+      const p2 = document.createElement('p')
+      p2.innerHTML = 'World'
+      div.shadowRoot.appendChild(p2)
+
+      setTimeout(() => {
+         document.body.appendChild(p1)
+      }, 2000);
+    }
+
+    document.addEventListener("DOMContentLoaded", onLoaded);
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>
