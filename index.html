@@ -10,15 +10,38 @@
       const div = document.querySelector('div');
       div.attachShadow({mode: "open"})
       const p1 = document.createElement('p')
-      p1.innerHTML='Hello'
+      p1.innerHTML='P1'
       div.shadowRoot.appendChild(p1)
       const p2 = document.createElement('p')
-      p2.innerHTML = 'World'
+      p2.innerHTML = 'P2'
       div.shadowRoot.appendChild(p2)
+
+      const main = document.querySelector('main');
+      main.attachShadow({mode: "open"})
+      const p1m = document.createElement('p')
+      p1m.innerHTML='P1 [Main]'
+      main.shadowRoot.appendChild(p1m)
+      const p2m = document.createElement('p')
+      p2m.innerHTML = 'P2 [Main]'
+      main.shadowRoot.appendChild(p2m)
 
       setTimeout(() => {
          document.body.appendChild(p1)
+        // const b = document.querySelector('b')
+        // div.shadowRoot.appendChild(b)
       }, 2000);
+
+      // setTimeout(() => {
+      //   const p3 = document.createElement("p")
+      //   p3.innerHTML = "P3"
+      //   main.shadowRoot.appendChild(p3)
+      //   document.body.appendChild(p3)
+      // }, 2000);
+
+      // setTimeout(() => {
+      //   div.shadowRoot.appendChild(p2m)
+      //   // document.body.appendChild(document.querySelector('i'))
+      // }, 2000);
     }
 
     document.addEventListener("DOMContentLoaded", onLoaded);
@@ -26,5 +49,10 @@
 </head>
 <body>
 <div></div>
+<main></main>
+<div id="test">
+  <i>child</i>
+</div>
+<b>Bold</b>
 </body>
 </html>
